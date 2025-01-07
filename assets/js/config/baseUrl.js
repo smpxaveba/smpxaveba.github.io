@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://backend-sikad.cloud/'; 
+export const BASE_URL = 'https://backend-sikad.cloud'; 
