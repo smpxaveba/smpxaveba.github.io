@@ -13,7 +13,10 @@ export function init() {
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
         const roleId = 0; // Default role_id
-
+        if (!email || !password) {
+            showToast('danger', 'Harap isi semua kolom sebelum melanjutkan.');
+            return;
+        }
         // Tampilkan modal
         const modal = new bootstrap.Modal(document.getElementById('editUser'));
         modal.show();
