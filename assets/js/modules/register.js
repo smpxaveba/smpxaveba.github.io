@@ -1,27 +1,48 @@
-import { NetworkHelper } from '../config/networkHelper.js';
-import { navigate } from './main.js';
-import { ENDPOINTS } from '../config/endpoint.js';
-import { showToast } from '../config/toast.js';
+let isAvailable = false;  // Boolean untuk mengendalikan akses ke pendaftaran
+
 export function init() {
     console.log("Auth Register Initialized");
 
     const registerButton = document.getElementById('registerButton'); // ID tombol
+    const modal = new bootstrap.Modal(document.getElementById('editUser'));
+
     registerButton.addEventListener('click', async (e) => {
         e.preventDefault(); // Mencegah reload halaman
 
-        // Ambil nilai dari input
+        if (!isAvailable) {
+            // Jika isAvailable false, tampilkan modal Coming Soon
+            const modalBody = document.querySelector('#editUser .modal-body');
+            modalBody.innerHTML = `
+                <div class="text-center text-info">
+                    <h5 style="font-size: 1.75em; font-weight: bold;">Segera Hadir</h5>
+                    <p style="font-size: 1.2em;">Sistem sedang dalam maintenance. Mohon tunggu beberapa saat lagi.</p>
+                    <div class="mt-3">
+                        <i class="fas fa-tools fa-3x"></i>
+                    </div>
+                </div>
+            `;
+            modal.show();
+            setTimeout(() => modal.hide(), 3000);  // Tutup modal setelah 3 detik
+            return;
+        }
+
+        // Jika isAvailable true, lanjutkan dengan proses pendaftaran
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
         const roleId = 0; // Default role_id
+
         if (!email || !password) {
-            showToast('danger', 'Harap isi semua kolom sebelum melanjutkan.');
+            modalBody.innerHTML = `
+            <div class="text-center text-danger">
+                <h5>Registrasi Gagal</h5>
+                <p>Pastikan email dan password sudah terisi.</p>
+            </div>
+            `;
+            modal.show();
             return;
         }
-        // Tampilkan modal
-        const modal = new bootstrap.Modal(document.getElementById('editUser'));
-        modal.show();
 
-        // Ubah isi modal untuk progres
+        // Tampilkan modal untuk loading
         const modalBody = document.querySelector('#editUser .modal-body');
         modalBody.innerHTML = `
             <div class="text-center">
@@ -31,6 +52,7 @@ export function init() {
                 </div>
             </div>
         `;
+        modal.show();
 
         try {
             // STEP 1: Kirim data ke endpoint REGISTER
