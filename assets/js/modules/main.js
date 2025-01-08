@@ -2,6 +2,7 @@ import { pageScripts } from "../config/routes.js";
 import { loadMenus } from '../config/sidebar.js'; // Mengimpor sidebar.js
 import { logout } from '../config/logout.js'; // Mengimpor fungsi logout dari auth.js
 import { blockUnauthorizedAccess } from '../config/blockurl.js'; // Mengimpor fungsi blockUnauthorizedAccess dari blockurl.js
+import { initializeInactivityDetection } from "../config/inactivityTimer.js";
 // Helper: Ambil nama file terakhir tanpa path folder
 function getFileNameFromPath(path) {
     return path.split("/").pop();
@@ -30,7 +31,6 @@ function checkAuthToken() {
     return true;
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname; // Ambil path absolut
     const currentPage = getFileNameFromPath(currentPath); // Nama file terakhir
@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //     return;
     // }
     // Cek token sebelum melanjutkan
+    initializeInactivityDetection();
+
     if (!checkAuthToken()) {
         return; // Hentikan eksekusi jika tidak ada token
     }
@@ -142,3 +144,6 @@ export function navigate(routeKey, queryParams = {}) {
     const fullUrl = new URL(url, window.location.origin).href;
     window.location.href = fullUrl;
 }
+
+
+
