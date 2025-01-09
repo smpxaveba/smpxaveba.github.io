@@ -73,6 +73,9 @@ export function init() {
                 <button class="btn btn-sm ${statusClass} status-btn">${status}</button>
             </td>
             <td>
+             <button class="btn btn-sm btn-secondary me-2 view-students-btn" data-id="${periode.id}">
+                    <i class="ti ti-pencil"></i> Lihat Siswa
+                </button>
                 <button class="btn btn-sm btn-primary me-2 edit-btn" data-id="${periode.id}">
                     <i class="ti ti-pencil"></i> Edit
                 </button>

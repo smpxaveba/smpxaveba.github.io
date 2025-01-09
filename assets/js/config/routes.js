@@ -89,4 +89,10 @@ export const pageScripts = {
         script: '/assets/js/modules/ppdb/jalur-pendaftaran.js'
     },
 
+    PERSYARATAN_NILAI: {
+        fileName: 'pages-section/ppdb/persyaratan-nilai.html',
+        script: '/assets/js/modules/ppdb/persyaratan-nilai.js'
+    },
+
+
 };

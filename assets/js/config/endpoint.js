@@ -121,5 +121,14 @@ export const ENDPOINTS = {
         DELETE: (id) => `/api/ppdb-jalur-periode/${id}`,
 
     },
+
+    PERSYARATAN_NILAI: {
+        GET_LIST: '/api/grade-requirements', // Mendapatkan semua persyaratan nilai
+        CREATE: '/api/grade-requirements', // Membuat persyaratan nilai baru
+        GET_BY_ID: (id) => `/api/grade-requirements/${id}`, // Mendapatkan persyaratan nilai berdasarkan ID
+        UPDATE: (id) => `/api/grade-requirements/${id}`, // Memperbarui persyaratan nilai berdasarkan ID
+        DELETE: (id) => `/api/grade-requirements/${id}`, // Menghapus persyaratan nilai berdasarkan ID
+    },
+    
  
 };
