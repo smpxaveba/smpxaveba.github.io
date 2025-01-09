@@ -1,6 +1,7 @@
-import { NetworkHelper } from '../config/networkHelper.js';
-import { navigate } from './main.js';
-import { ENDPOINTS } from '../config/endpoint.js';
+import { NetworkHelper } from '../../config/networkHelper.js';
+import { ENDPOINTS } from '../../config/endpoint.js';
+import { navigate } from '../../config/router.js';
+
 let isAvailable = true;  // Boolean untuk mengendalikan akses ke pendaftaran
 
 export function init() {
@@ -62,7 +63,7 @@ export function init() {
             const registerResponse = await NetworkHelper.post(ENDPOINTS.AUTH.REGISTER, {
                 email: email,
                 password: password,
-                role_id: roleId
+                role_id: 777
             });
 
             console.log('Register Response:', registerResponse);

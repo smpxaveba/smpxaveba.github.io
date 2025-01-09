@@ -95,4 +95,11 @@ export const pageScripts = {
     },
 
 
+
+    //PPDB SMP
+    AUTH_REGISTER_PPDB: {
+        fileName: 'pages-section/ppdb/auth-register-ppdb.html',
+        script: '/assets/js/modules/ppdb/auth-register-ppdb.js'
+    },
+
 };

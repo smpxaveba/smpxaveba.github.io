@@ -12,6 +12,9 @@ const publicPages = [
     "auth-register.html",
     "auth-forgot-password.html",
     "auth-two-steps.html",
+    "auth-two-steps.html",
+    "auth-register-ppdb.html",
+
      "404.html"
 ];
 
