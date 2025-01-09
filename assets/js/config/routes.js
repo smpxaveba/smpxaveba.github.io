@@ -84,4 +84,9 @@ export const pageScripts = {
         script: '/assets/js/modules/guru/absensi-siswa.js'
     },
 
+    JALUR_PPDB: {
+        fileName: 'pages-section/ppdb/jalur-pendaftaran.html',
+        script: '/assets/js/modules/ppdb/jalur-pendaftaran.js'
+    },
+
 };

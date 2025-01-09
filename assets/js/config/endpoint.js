@@ -112,5 +112,14 @@ export const ENDPOINTS = {
         REMOVE: '/api/student-classes',
         BULK: '/api/student-classes/bulk'
     },
+
+    PPDB_JALUR_PERIODE: {
+        GET_LIST: '/api/ppdb-jalur-periode', // Mendapatkan semua data jalur periode dengan pagination
+        CREATE: '/api/ppdb-jalur-periode', // Membuat jalur periode baru
+        GET_BY_ID: (id) => `/api/ppdb-jalur-periode/${id}`,
+        UPDATE: (id) => `/api/ppdb-jalur-periode/${id}`,
+        DELETE: (id) => `/api/ppdb-jalur-periode/${id}`,
+
+    },
  
 };
