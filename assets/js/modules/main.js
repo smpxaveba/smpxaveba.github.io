@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     return;
     // }
     // Cek token sebelum melanjutkan
-    initializeInactivityDetection();
+    // initializeInactivityDetection();
 
     if (!checkAuthToken()) {
         return; // Hentikan eksekusi jika tidak ada token
