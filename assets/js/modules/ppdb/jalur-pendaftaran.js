@@ -1,6 +1,7 @@
 import { NetworkHelper } from '../../config/networkHelper.js';
 import { ENDPOINTS } from '../../config/endpoint.js';
 import { showToast } from '../../config/toast.js';
+import { navigate } from '../main.js';
 
 /**
  * Inisialisasi halaman Jalur Periode
@@ -88,7 +89,13 @@ export function init() {
             tableBody.insertAdjacentHTML("beforeend", row);
         });
         
-
+        document.querySelectorAll(".view-students-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                const id = button.getAttribute("data-id"); // Ambil ID dari data-id
+                localStorage.setItem("selectedJalurId", id); // Simpan ID ke localStorage
+                showToast(`ID Jalur ${id} disimpan ke localStorage`, "success");
+                navigate('SISWA_BY_JALUR');            });
+        });
         // Event listener untuk tombol Edit
         document.querySelectorAll(".edit-btn").forEach(button => {
             button.addEventListener("click", () => {

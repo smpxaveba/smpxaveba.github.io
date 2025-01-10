@@ -12,6 +12,12 @@ export function init() {
         return;
     }
 
+    const ppdbOnlineButton = document.getElementById('ppdbButton');
+    ppdbOnlineButton.addEventListener('click', () => {
+        navigate('AUTH_REGISTER_PPDB');
+    });
+
+
     loginButton.addEventListener('click', async () => {
         // Ambil nilai email dan password dari input
         const email = document.getElementById('email').value.trim();

@@ -102,4 +102,12 @@ export const pageScripts = {
         script: '/assets/js/modules/ppdb/auth-register-ppdb.js'
     },
 
+    DATA_SISWA: {
+        fileName: 'pages-section/ppdb/data-siswa.html',
+        script: '/assets/js/modules/ppdb/data-siswa.js'
+    },
+    SISWA_BY_JALUR: {
+        fileName: 'pages-section/ppdb/siswa-by-jalur.html',
+        script: '/assets/js/modules/ppdb/siswa-by-jalur.js'
+    },
 };

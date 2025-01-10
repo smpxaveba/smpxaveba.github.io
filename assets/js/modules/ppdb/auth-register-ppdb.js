@@ -1,6 +1,6 @@
 import { NetworkHelper } from '../../config/networkHelper.js';
 import { ENDPOINTS } from '../../config/endpoint.js';
-import { navigate } from '../../config/router.js';
+import { navigate } from '../main.js';
 
 let isAvailable = true;  // Boolean untuk mengendalikan akses ke pendaftaran
 
@@ -33,7 +33,7 @@ export function init() {
         // Jika isAvailable true, lanjutkan dengan proses pendaftaran
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
-        const roleId = 0; // Default role_id
+        const roleId = 777; // Default role_id
 
         if (!email || !password) {
             modalBody.innerHTML = `
@@ -63,7 +63,7 @@ export function init() {
             const registerResponse = await NetworkHelper.post(ENDPOINTS.AUTH.REGISTER, {
                 email: email,
                 password: password,
-                role_id: 777
+                role_id: roleId
             });
 
             console.log('Register Response:', registerResponse);
@@ -73,6 +73,7 @@ export function init() {
                 await NetworkHelper.post(ENDPOINTS.AUTH.SEND_VERIFICATION_EMAIL, {
                     email: email
                 });
+                localStorage.setItem('role-ppdb', 777);
 
                 // Tampilkan pesan sukses di modal
                 modalBody.innerHTML = `
@@ -81,11 +82,12 @@ export function init() {
                         <p>Silakan cek email Anda untuk verifikasi.</p>
                     </div>
                 `;
-
                 // Navigasi ke halaman auth-two-steps.html setelah 2 detik
                 setTimeout(() => {
                     modal.hide();
                     localStorage.setItem('email', email); // Simpan email (opsional)
+                    localStorage.setItem('role-ppdb', roleId); // Simpan email (opsional)
+
                     navigate('AUTH_TWO_STEPS');
                 }, 2000);
             } else {
@@ -102,6 +104,8 @@ export function init() {
                         <div class="text-center text-danger">
                             <h5>Registrasi Gagal</h5>
                             <p>Pastikan email dan password sudah terisi.</p>
+                                        <p>${errorMessage}</p>
+
                         </div>
                     `;
                 } else if (errorMessage === "Email already exists. Please use another email.") {
@@ -109,6 +113,8 @@ export function init() {
                         <div class="text-center text-danger">
                             <h5>Registrasi Gagal</h5>
                             <p>Email ini sudah terdaftar. Silakan gunakan email lain.</p>
+                                        <p>${errorMessage}</p>
+
                         </div>
                     `;
                 } else {

@@ -129,6 +129,12 @@ export const ENDPOINTS = {
         UPDATE: (id) => `/api/grade-requirements/${id}`, // Memperbarui persyaratan nilai berdasarkan ID
         DELETE: (id) => `/api/grade-requirements/${id}`, // Menghapus persyaratan nilai berdasarkan ID
     },
+
+    STUDENT_REGISTRATIONS: {
+        GET_BY_JALUR: (jalurPeriodeId) => `/api/students-registrations/jalur/${jalurPeriodeId}`,
+        CREATE: '/api/student-registrations',
+        UPDATE_STATUS: (id) => `/api/student-registrations/status/${id}`,
+    },  
     
  
 };
