@@ -5,22 +5,26 @@ import { showToast } from '../../config/toast.js';
 import { navigateToDashboard } from '../../config/back.js';
 
 let isNewRecord = false; // Flag to check if it's a new record
-
 export function init() {
     console.log("Data Siswa Initialized");
-    navigateToDashboard();
+
+    // Cek apakah studentRegistrationId ada di localStorage
     const studentRegistrationId = localStorage.getItem('student_registration_id');
 
+    // Jika tidak ada studentRegistrationId, set isNewRecord menjadi true
     if (!studentRegistrationId) {
-        showToast('Student Registration ID tidak ditemukan.', 'warning');
-        return;
+        console.warn('Student Registration ID tidak ditemukan. Pendaftar baru.');
+        isNewRecord = true; // Data baru, gunakan POST
+    } else {
+        console.log('Student Registration ID ditemukan:', studentRegistrationId);
+        getStudentData(studentRegistrationId); // Ambil data jika ID ditemukan
     }
 
-    getStudentData(studentRegistrationId);
-
-    // Add event listener to the save button
-    const saveButton = document.querySelector('.btn-primary');
+    // Pasang event listener pada tombol Simpan
+    const saveButton = document.getElementById('tombolsave');
     saveButton.addEventListener('click', () => saveStudentData(studentRegistrationId));
+
+    navigateToDashboard();
 }
 
 /**
@@ -48,7 +52,6 @@ async function getStudentData(id) {
         }
     }
 }
-
 /**
  * Populate form fields dengan data siswa
  * @param {object} data - Data siswa dari API
@@ -81,25 +84,31 @@ function populateForm(data) {
     setFieldValue('transportation', data.mode_transportasi);
 }
 
-/**
- * Save student data to the server
- * @param {number} studentRegistrationId - Student Registration ID
- */
+
 async function saveStudentData(studentRegistrationId) {
+    console.log('Menyimpan data siswa:', studentRegistrationId);
+
     try {
         const studentData = getFormData();
 
+        // Tambahkan jalur_periode_id dari localStorage
+        const jalurPeriodeId = localStorage.getItem('selectedJalurId');
+        if (!jalurPeriodeId) {
+            showToast('Jalur belum dipilih. Silakan pilih jalur terlebih dahulu.', 'warning');
+            return;
+        }
+        studentData.jalur_periode_id = jalurPeriodeId;
+
+        let response;
         if (isNewRecord) {
-            // POST request to create a new student registration
-            const response = await NetworkHelper.post(ENDPOINTS.STUDENT_REGISTRATIONS.CREATE, studentData);
+            response = await NetworkHelper.post(ENDPOINTS.STUDENT_REGISTRATIONS.CREATE, studentData);
             showToast('Data siswa berhasil disimpan.', 'success');
-            isNewRecord = false; // Switch to update mode after creation
+
+            // Simpan student_registration_id ke localStorage setelah berhasil POST
+            localStorage.setItem('student_registration_id', response.data.id);
+            isNewRecord = false;
         } else {
-            // PUT request to update existing student registration
-            const response = await NetworkHelper.put(
-                ENDPOINTS.STUDENT_REGISTRATIONS.UPDATE(studentRegistrationId),
-                studentData
-            );
+            response = await NetworkHelper.put(ENDPOINTS.STUDENT_REGISTRATIONS.UPDATE(studentRegistrationId), studentData);
             showToast('Data siswa berhasil diperbarui.', 'success');
         }
     } catch (error) {
@@ -108,25 +117,22 @@ async function saveStudentData(studentRegistrationId) {
     }
 }
 
-/**
- * Get form data as an object
- * @returns {object} Form data
- */
 function getFormData() {
     return {
+        user_id: 51, // Sesuaikan dengan ID user yang login
         nis: document.getElementById('nis').value,
         nik: document.getElementById('nik').value,
         nama_lengkap: document.getElementById('nama').value,
         jenis_kelamin: document.getElementById('gender').value === 'male' ? 'L' : 'P',
         tempat_lahir: document.getElementById('birthplace').value,
-        tanggal_lahir: document.getElementById('birthdate').value, // Assuming the date input type will return the correct format
+        tanggal_lahir: document.getElementById('birthdate').value,
         agama: document.getElementById('religion').value,
         golongan_darah: document.getElementById('bloodtype').value,
-        tinggi_badan: document.getElementById('height').value,
-        berat_badan: document.getElementById('weight').value,
+        tinggi_badan: parseFloat(document.getElementById('height').value),
+        berat_badan: parseFloat(document.getElementById('weight').value),
         status_keluarga: document.getElementById('family-status').value,
-        anak_ke: document.getElementById('child-order').value,
-        jumlah_saudara: document.getElementById('siblings').value,
+        anak_ke: parseInt(document.getElementById('child-order').value, 10),
+        jumlah_saudara: parseInt(document.getElementById('siblings').value, 10),
         riwayat_penyakit: document.getElementById('disease-history').value,
         hobi: document.getElementById('hobby').value,
         prestasi: document.getElementById('achievement').value,
@@ -139,8 +145,10 @@ function getFormData() {
         kabupaten: document.getElementById('regency').value,
         provinsi: document.getElementById('province').value,
         mode_transportasi: document.getElementById('transportation').value,
+        status_pendaftaran: 'Pending', // Default status pendaftaran
     };
 }
+
 
 /**
  * Set value pada input field
@@ -152,15 +160,4 @@ function setFieldValue(fieldId, value) {
     if (field && value) {
         field.value = value;
     }
-}
-
-/**
- * Format tanggal ke format dd-mm-yyyy
- * @param {string} date - Tanggal dalam format ISO
- * @returns {string} Tanggal dalam format dd-mm-yyyy
- */
-function formatDate(date) {
-    if (!date) return '';
-    const d = new Date(date);
-    return `${d.getDate().toString().padStart(2, '0')}-${(d.getMonth() + 1).toString().padStart(2, '0')}-${d.getFullYear()}`;
 }

@@ -76,7 +76,8 @@ export function init() {
         const selectedOption = document.querySelector('input[name="customOptionRadioIcon"]:checked');
         if (selectedOption) {
             const selectedJalurId = selectedOption.value;
-            console.log('Jalur ID terpilih:', selectedJalurId);
+            // console.log('Jalur ID terpilih:', selectedJalurId);
+            localStorage.setItem('selectedJalurId', selectedJalurId);
 
             // Navigasi ke DASHBOARD_PPDB dengan ID jalur sebagai parameter
             navigate('DASHBOARD_PPDB', { jalurId: selectedJalurId });

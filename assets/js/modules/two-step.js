@@ -49,7 +49,7 @@ export function init() {
                     showToast('Anda memiliki akses ke PPDB. Mengarahkan ke halaman Data Siswa...', 'success');
 
                     setTimeout(() => {
-                        navigate('JALUR_PPDB_USERS'); // Navigasi ke halaman DATA_SISWA
+                        navigate('AUTH_LOGIN'); // Navigasi ke halaman DATA_SISWA
                         // localStorage.removeItem('role_id');
                         // localStorage.removeItem('role-ppdb'); // Hapus role_id dari localStorage
                         // localStorage.removeItem('email'); // Hapus email dari localStorage

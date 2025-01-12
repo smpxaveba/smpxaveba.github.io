@@ -17,7 +17,9 @@ export function init() {
         getFormStatus(studentRegistrationId); // Panggil status form setelah data siswa
     } else {
         console.warn('Student registration ID tidak ditemukan di localStorage.');
-        showToast('Student registration ID tidak ditemukan.', 'warning');
+        // showToast('Student registration ID tidak ditemukan.', 'warning');
+        setupNewUserFlow();
+
     }
 
     /**
@@ -45,6 +47,24 @@ export function init() {
             }
         } catch (error) {
             console.error('Error fetching student registration:', error);
+        }
+    }
+
+    /**
+     * Setup flow for new user without student_registration_id
+     */
+    function setupNewUserFlow() {
+        // Update semua status menjadi Belum Lengkap
+        updateStatusElement('status-siswa', 0, 'siswa', 'Data Siswa', 'DATA_SISWA');
+        updateStatusElement('status-orangtua', 0, 'orangtua', 'Data Orang Tua', 'DATA_ORANGTUA');
+        updateStatusElement('status-nilai', 0, 'nilai', 'Data Nilai', 'DATA_NILAI');
+
+        // Sembunyikan progress bar
+        const progressBar = document.getElementById('progress-bar');
+        if (progressBar) {
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            progressBar.className = 'progress-bar bg-danger';
         }
     }
 
