@@ -73,6 +73,10 @@ export const pageScripts = {
         fileName: 'pages-section/admin/pengumuman.html',
         script: '/assets/js/modules/admin/pengumuman.js'
     },
+    USERS: {
+        fileName: 'pages-section/admin/users.html',
+        script: '/assets/js/modules/admin/users.js'
+    },
 
     // GURU
     JADWALPELAJARANGURU: {
@@ -106,8 +110,28 @@ export const pageScripts = {
         fileName: 'pages-section/ppdb/data-siswa.html',
         script: '/assets/js/modules/ppdb/data-siswa.js'
     },
+    DATA_ORANGTUA: {
+        fileName: 'pages-section/ppdb/data-orangtua.html',
+        script: '/assets/js/modules/ppdb/data-orangtua.js'
+    },
+
+    DATA_NILAI: {
+        fileName: 'pages-section/ppdb/data-nilai.html',
+        script: '/assets/js/modules/ppdb/data-nilai.js'
+    },
     SISWA_BY_JALUR: {
         fileName: 'pages-section/ppdb/siswa-by-jalur.html',
         script: '/assets/js/modules/ppdb/siswa-by-jalur.js'
     },
+
+    JALUR_PPDB_USERS: {
+        fileName: 'pages-section/ppdb/jalur-ppdb.html',
+        script: '/assets/js/modules/ppdb/jalur-ppdb.js'
+    },
+
+    DASHBOARD_PPDB: {
+        fileName: 'pages-section/ppdb/dashboard.html',
+        script: '/assets/js/modules/ppdb/dashboard.js'
+    },
+   
 };

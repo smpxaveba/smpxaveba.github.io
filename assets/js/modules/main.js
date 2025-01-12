@@ -14,7 +14,6 @@ const publicPages = [
     "auth-two-steps.html",
     "auth-two-steps.html",
     "auth-register-ppdb.html",
-
      "404.html"
 ];
 
@@ -66,7 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
             navigate("DASHBOARDGURU"); // Guru
         } else if (role_id === "998") {
             navigate("DASHBOARDADMIN"); // Admin
-        } else {
+        } else if (role_id === "777") {
+            navigate("DASHBOARD_PPDB"); // PPDB
+        }
+        
+        else {
             navigate("DASHBOARD"); // Default dashboard
         }
     }

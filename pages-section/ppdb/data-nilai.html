@@ -203,8 +203,9 @@
             <div class="row">
               <div class="col-12">
                 <div class="card">
-                  <div class="card-header sticky-element bg-label-secondary d-flex justify-content-sm-between align-items-sm-center flex-column flex-sm-row">
-                    <h5 class="card-title mb-sm-0 me-2">Formulir Data Orang Tua</h5>
+                  <div
+                    class="card-header sticky-element bg-label-secondary d-flex justify-content-sm-between align-items-sm-center flex-column flex-sm-row">
+                    <h5 class="card-title mb-sm-0 me-2">Formulir Data Nilai</h5>
                     <div class="action-btns">
                       <button class="btn btn-label-primary me-4 btn-back">
                         <span class="align-middle "> Kembali</span>
@@ -214,174 +215,15 @@
                   </div>
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-lg-8 mx-auto">
-                        <!-- Form Data Orang Tua -->
-                        <h5 class="mb-6">Formulir Orang Tua</h5>
-                        <div class="row g-4">
-                          <!-- Data Ayah -->
-                          <h5 class="mt-4 mb-2">Data Ayah</h5>
-                          <div class="col-md-6">
-                            <label class="form-label" for="nama-ayah">Nama Ayah</label>
-                            <input type="text" id="ayah" class="form-control" placeholder="Masukan Nama Lengkap Ayah" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="nik-ayah">NIK Ayah</label>
-                            <input type="text" id="nik-ayah" class="form-control" placeholder="Masukan NIK Ayah" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="status-ayah">Status Ayah</label>
-                            <select id="status-ayah" class="form-select">
-                              <option value="">Pilih Status</option>
-                              <option value="Masih Ada">Masih Ada</option>
-                              <option value="Sudah Meninggal">Sudah Meninggal</option>
-                            </select>
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="tempat-lahir-ayah">Tempat Lahir</label>
-                            <input type="text" id="tempat-lahir-ayah" class="form-control" placeholder="Masukan Tempat Lahir" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="tanggal-lahir-ayah">Tanggal Lahir</label>
-                            <input type="date" id="tanggal-lahir-ayah" class="form-control" placeholder="Contoh: 01-01-1980" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="pendidikan-ayah">Pendidikan Ayah</label>
-                            <input type="text" id="pendidikan-ayah" class="form-control" placeholder="Masukan Pendidikan Ayah" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="pekerjaan-ayah">Pekerjaan Ayah</label>
-                            <select id="pekerjaan-ayah" class="form-select">
-                              <option value="">Pilih Pekerjaan</option>
-                              <option value="Buruh">Buruh</option>
-                              <option value="Petani">Petani</option>
-                              <option value="Wiraswasta">Wiraswasta</option>
-                              <option value="PNS">PNS</option>
-                              <option value="Polri/TNI">Polri/TNI</option>
-                              <option value="Perangkat Desa">Perangkat Desa</option>
-                              <option value="Nelayan">Nelayan</option>
-                            </select>
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="penghasilan-ayah">Penghasilan Ayah</label>
-                            <input type="text" id="penghasilan-ayah" class="form-control" placeholder="Masukan Penghasilan Ayah" />
-                          </div>
-          
-                          <!-- Data Ibu -->
-                          <h5 class="mt-4 mb-2">Data Ibu</h5>
-                          <div class="col-md-6">
-                            <label class="form-label" for="nama-ibu">Nama Ibu</label>
-                            <input type="text" id="nama-ibu" class="form-control" placeholder="Masukan Nama Lengkap Ibu" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="nik-ibu">NIK Ibu</label>
-                            <input type="text" id="nik-ibu" class="form-control" placeholder="Masukan NIK Ibu" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="status-ibu">Status Ibu</label>
-                            <select id="status-ibu" class="form-select">
-                              <option value="">Pilih Status</option>
-                              <option value="Masih Ada">Masih Ada</option>
-                              <option value="Sudah Meninggal">Sudah Meninggal</option>
-                            </select>
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="tempat-lahir-ibu">Tempat Lahir</label>
-                            <input type="text" id="tempat-lahir-ibu" class="form-control" placeholder="Masukan Tempat Lahir" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="tanggal-lahir-ibu">Tanggal Lahir</label>
-                            <input type="date" id="tanggal-lahir-ibu" class="form-control" placeholder="Contoh: 02-02-1985" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="pendidikan-ibu">Pendidikan Ibu</label>
-                            <input type="text" id="pendidikan-ibu" class="form-control" placeholder="Masukan Pendidikan Ibu" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="pekerjaan-ibu">Pekerjaan Ibu</label>
-                            <select id="pekerjaan-ibu" class="form-select">
-                              <option value="">Pilih Pekerjaan</option>
-                              <option value="Buruh">Buruh</option>
-                              <option value="Petani">Petani</option>
-                              <option value="Wiraswasta">Wiraswasta</option>
-                              <option value="PNS">PNS</option>
-                              <option value="Polri/TNI">Polri/TNI</option>
-                              <option value="Perangkat Desa">Perangkat Desa</option>
-                              <option value="Nelayan">Nelayan</option>
-                              <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-                              <option value="Lainnya">Lainnya</option>
-
-                            </select>
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="penghasilan-ibu">Penghasilan Ibu</label>
-                            <input type="text" id="penghasilan-ibu" class="form-control" placeholder="Masukan Penghasilan Ibu" />
-                          </div>
-          
-                          <!-- Data Wali -->
-                          <h5 class="mt-4 mb-2">Data Wali</h5>
-                          <div class="col-md-6">
-                            <label class="form-label" for="nama-wali">Nama Wali</label>
-                            <input type="text" id="nama-wali" class="form-control" placeholder="Masukan Nama Lengkap Wali" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="nik-wali">NIK Wali</label>
-                            <input type="text" id="nik-wali" class="form-control" placeholder="Masukan NIK Wali" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="status-wali">Status Wali</label>
-                            <select id="status-wali" class="form-select">
-                              <option value="">Pilih Status</option>
-                              <option value="Masih Ada">Masih Ada</option>
-                              <option value="Sudah Meninggal">Sudah Meninggal</option>
-                            </select>
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="tempat-lahir-wali">Tempat Lahir</label>
-                            <input type="text" id="tempat-lahir-wali" class="form-control" placeholder="Masukan Tempat Lahir" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="tanggal-lahir-wali">Tanggal Lahir</label>
-                            <input type="date" id="tanggal-lahir-wali" class="form-control" placeholder="Contoh: 03-03-1982" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="pendidikan-wali">Pendidikan Wali</label>
-                            <input type="text" id="pendidikan-wali" class="form-control" placeholder="Masukan Pendidikan Wali" />
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="pekerjaan-wali">Pekerjaan Wali</label>
-                            <select id="pekerjaan-wali" class="form-select">
-                              <option value="">Pilih Pekerjaan</option>
-                              <option value="Buruh">Buruh</option>
-                              <option value="Petani">Petani</option>
-                              <option value="Wiraswasta">Wiraswasta</option>
-                              <option value="PNS">PNS</option>
-                              <option value="Polri/TNI">Polri/TNI</option>
-                              <option value="Perangkat Desa">Perangkat Desa</option>
-                              <option value="Nelayan">Nelayan</option>
-                              <option value="Lainnya">Lainnya</option>
-
-                            </select>
-                          </div>
-                          <div class="col-md-6">
-                            <label class="form-label" for="penghasilan-wali">Penghasilan Wali</label>
-                            <input type="text" id="penghasilan-wali" class="form-control" placeholder="Masukan Penghasilan Wali" />
-                          </div>
-          
-                          <!-- Kontak -->
-                          <div class="col-md-6">
-                            <label class="form-label" for="kontak-wali">No. Kontak/HP</label>
-                            <input type="text" id="no-telepon" class="form-control" placeholder="Masukan No. Kontak Wali" />
-                          </div>
-          
-                          <!-- Alamat -->
-                          <div class="col-12">
-                            <label class="form-label" for="alamat">Alamat Lengkap</label>
-                            <textarea id="alamat" class="form-control" rows="3" placeholder="Masukan Alamat Lengkap"></textarea>
-                          </div>
+                        <div class="col-lg-8 mx-auto">
+                            <h5 class="mb-6">Formulir Data Nilai</h5>
+                            <div id="form-grade-container" class="row g-4">
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
+                </div>
+                
+
                 </div>
               </div>
             </div>
@@ -400,7 +242,6 @@
   
             <!-- /Sticky Actions -->
           </div>
-          
           <!-- / Content -->
 
           <!-- Footer -->

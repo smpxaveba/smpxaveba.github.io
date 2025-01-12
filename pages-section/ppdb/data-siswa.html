@@ -62,7 +62,7 @@
 
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
         <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="dashboard.html" class="app-brand-link">
                 <span class="app-brand-logo demo">
                     <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z" fill="#7367F0"/>
@@ -207,8 +207,8 @@
                     class="card-header sticky-element bg-label-secondary d-flex justify-content-sm-between align-items-sm-center flex-column flex-sm-row">
                     <h5 class="card-title mb-sm-0 me-2">Pendaftaran Siswa Baru</h5>
                     <div class="action-btns">
-                      <button class="btn btn-label-primary me-4">
-                        <span class="align-middle"> Kembali</span>
+                      <button class="btn btn-label-primary me-4 btn-back">
+                        <span class="align-middle "> Kembali</span>
                       </button>
                       <button class="btn btn-primary">Simpan</button>
                     </div>
@@ -257,7 +257,7 @@
                           <!-- Tanggal Lahir -->
                           <div class="col-md-6">
                             <label class="form-label" for="birthdate">Tgl. Lahir</label>
-                            <input type="text" id="birthdate" class="form-control" placeholder="Contoh: 30-07-2000" />
+                            <input type="date" id="birthdate" class="form-control" placeholder="Contoh: 30-07-2000" />
                           </div>
 
                           <!-- Agama -->
@@ -400,56 +400,56 @@
                           </div>
 
                           <!-- Tempat Tinggal -->
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <label class="form-label" for="residence">Tempat Tinggal</label>
                             <input type="text" id="residence" class="form-control"
                               placeholder="Ketik atau pilih tempat tinggal" />
-                          </div>
+                          </div> -->
 
                           <!-- Jarak Rumah -->
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <label class="form-label" for="distance">Jarak Rumah</label>
                             <input type="text" id="distance" class="form-control"
                               placeholder="Masukan jarak rumah ke sekolah" />
-                          </div>
+                          </div> -->
 
                           <!-- Titik Koordinat Rumah -->
-                          <div class="col-12">
+                          <!-- <div class="col-12">
                             <label class="form-label" for="coordinates">Titik Koordinat Rumah</label>
                             <input type="text" id="coordinates" class="form-control"
                               placeholder="Masukan koordinat rumah" />
-                          </div>
+                          </div> -->
 
                           <!-- Kartu Bantuan -->
-                          <h5 class="mt-4 mb-2">Kartu Bantuan</h5>
+                          <!-- <h5 class="mt-4 mb-2">Kartu Bantuan</h5> -->
 
                           <!-- No. KKS -->
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <label class="form-label" for="kks">No. KKS</label>
                             <input type="text" id="kks" class="form-control"
                               placeholder="Masukan No. Kartu Keluarga Sejahtera" />
-                          </div>
+                          </div> -->
 
                           <!-- No. PKH -->
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <label class="form-label" for="pkh">No. PKH</label>
                             <input type="text" id="pkh" class="form-control"
                               placeholder="Masukan No. Program Keluarga Harapan" />
-                          </div>
+                          </div> -->
 
                           <!-- No. KIP -->
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <label class="form-label" for="kip">No. KIP</label>
                             <input type="text" id="kip" class="form-control"
                               placeholder="Masukan No. Kartu Indonesia Pintar" />
-                          </div>
+                          </div> -->
 
                           <!-- No. Kontak -->
-                          <div class="col-md-6">
+                          <!-- <div class="col-md-6">
                             <label class="form-label" for="contact">No. Kontak/HP/WhatsApp</label>
                             <input type="text" id="contact" class="form-control"
                               placeholder="Masukan No. Kontak/HP/WhatsApp" />
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -459,6 +459,20 @@
               </div>
             </div>
             <!-- /Sticky Actions -->
+                <!-- Toast Container di Body -->
+          <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+            <div class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+              aria-atomic="true" id="toastSuccess">
+              <div class="d-flex">
+                <div class="toast-body" id="toastMessage">
+                  <!-- Pesan sukses atau error akan diisi melalui JavaScript -->
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
           </div>
           <!-- / Content -->
 
@@ -507,6 +521,7 @@
   <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
   <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
   <script src="../../assets/vendor/js/menu.js"></script>
+  <script type="module" src="../../assets/js/modules/main.js"></script>
 
   <!-- endbuild -->
 

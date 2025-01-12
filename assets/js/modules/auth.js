@@ -50,6 +50,28 @@ export function init() {
             } else if (roleId === 2) {
                 console.log("Navigating to Guru Dashboard");
                 navigate('DASHBOARDGURU');
+            } else if (roleId === 777) {
+                console.log("Navigating to PPDB Dashboard");
+
+                const studentRegistrationId = response.data.student_registration_id;
+                const jalurPeriode = response.data.jalur_periode;
+
+                // Simpan student_registration_id ke localStorage
+                if (studentRegistrationId) {
+                    localStorage.setItem('student_registration_id', studentRegistrationId);
+                    console.log('Student Registration ID saved:', studentRegistrationId);
+                } else {
+                    console.warn('Student Registration ID not found.');
+                }
+
+                // Cek apakah jalur_periode ada
+                if (jalurPeriode && jalurPeriode.jalur_periode_id) {
+                    console.log("User terdaftar di Jalur Periode:", jalurPeriode.nama_jalur);
+                    navigate('DASHBOARD_PPDB'); 
+                } else {
+                    console.log("User belum memilih Jalur Periode");
+                    navigate('JALUR_PPDB_USERS'); 
+                }
             } else {
                 console.log("Navigating to Default Dashboard");
                 navigate('ERROR404LOGIN');
